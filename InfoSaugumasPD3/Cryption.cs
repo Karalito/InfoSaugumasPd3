@@ -42,6 +42,8 @@ namespace InfoSaugumasPD3
                     }
                     
                 }
+                DataBase caller = new DataBase();
+                caller.InsertValues(result, e, n);
                 return result;
 
             }
@@ -104,7 +106,7 @@ namespace InfoSaugumasPD3
                 HelperMethods.TryModInverse(e, phi,out BigInteger result);
                 d = result;
                 Console.WriteLine(d + " <- D");
-                Encryption();
+                //Encryption();
             }
             catch (Exception ex)
             {
