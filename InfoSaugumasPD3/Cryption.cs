@@ -33,15 +33,7 @@ namespace InfoSaugumasPD3
                 }
                     result = result.Substring(0, result.Length - 1);
 
-                string path = @"C:\Users\ASUS\Desktop\Test\MyTest.txt";
-                if (!File.Exists(path))
-                {
-                    using (StreamWriter sw = File.CreateText(path))
-                    {
-                        sw.WriteLine(result);
-                    }
-                    
-                }
+                
                 DataBase caller = new DataBase();
                 caller.InsertValues(result, e, n);
                 return result;
@@ -92,13 +84,14 @@ namespace InfoSaugumasPD3
                 phi = (p - 1) * (q - 1);
                 Console.WriteLine(e + " <- E");
                 // E neturetų dalintis tuo pačiu factor su phi
-                for (BigInteger i = 1; i <= 65537; i++) // Pasirenkame didžiausia eksponente
-                 {
-                     if (HelperMethods.checkPrime(i) && HelperMethods.checkCoPrime(i, phi) && i != p && i != q && i != phi)
-                     {
-                         e = i;
-                     }
-                 }
+                for (BigInteger i = 2; i < phi; i++) // Pasirenkame didžiausia eksponente
+                {
+                    if (HelperMethods.checkPrime(i) && HelperMethods.checkCoPrime(i, phi) && i != p && i != q && i != phi)
+                    {
+                        e = i;
+                        break;
+                    }
+                }
                 Console.WriteLine(n + " <- N");
                 Console.WriteLine(phi + " <- Phi");
                 Console.WriteLine(e + " <- E");

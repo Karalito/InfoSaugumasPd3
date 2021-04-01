@@ -89,7 +89,7 @@ namespace InfoSaugumasPD3
                 Cryption rsaWork = new Cryption();
                 rsaWork.rsaDecryption(encText, n, ex);
                 decryptedTxt.Text = rsaWork.Decryption();
-            }
+            } 
         }
 
        
